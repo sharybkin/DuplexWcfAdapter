@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="42bceb7f-7bb4-4e5c-aab7-1d89983ca765" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/bettinglineservice/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e7bbf637-88e2-4ee4-8d8b-03d5dafd3d5d" SourceId="1" SourceUrl="http://localhost:8733/BettingLineService/?xsd=xsd2" />
+    <MetadataFile FileName="BettingLineService.wsdl" MetadataType="Wsdl" ID="6547317e-6ebd-4916-8eb0-a5d344478adc" SourceId="1" SourceUrl="http://localhost:8733/BettingLineService/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="c832869c-4cbd-4506-bbb9-0ba3a2be5a13" SourceId="1" SourceUrl="http://localhost:8733/BettingLineService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="69711fc2-800e-492e-9b91-d95410053445" SourceId="1" SourceUrl="http://localhost:8733/BettingLineService/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="c7057897-c8c3-4b5d-a75a-4be9e61f21cc" SourceId="1" SourceUrl="http://localhost:8733/BettingLineService/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
