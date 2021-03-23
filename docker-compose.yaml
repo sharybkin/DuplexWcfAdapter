@@ -1,0 +1,30 @@
+﻿version: '3'
+
+networks:
+  bettinglineservice:
+    driver: bridge
+
+services: 
+  bettinglineservice:
+    container_name: bettinglineservice
+    depends_on:
+        - "rabbitmq"
+    build: 
+     context: ./
+     dockerfile: src/Service/BettingLine.Service/Dockerfile
+    ports:
+        - "7070:7070"
+    environment:
+     ASPNETCORE_URLS: "http://+:7070"
+     ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - bettinglineservice
+  rabbitmq:
+     container_name: rabbitmq_dev
+     hostname: my-rabbit
+     image: rabbitmq:3.8.9-management
+     ports:
+        - "5672:5672"
+        - "15672:15672"
+     networks:
+        - bettinglineservice

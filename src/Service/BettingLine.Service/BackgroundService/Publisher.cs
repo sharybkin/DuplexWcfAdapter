@@ -30,33 +30,33 @@ namespace BettingLine.Service.BackgroundService
         
         public void Publish<T>(string exchange, T message) where T : Message
         {
-            using var channel = Connection.CreateModel();
-            channel.ExchangeDeclare(exchange, ExchangeType.Fanout);
-            
-            var json = JsonConvert.SerializeObject(message);
-            var body = Encoding.UTF8.GetBytes(json);
+            try
+            {
+                using var channel = Connection.CreateModel();
+                channel.ExchangeDeclare(exchange, ExchangeType.Fanout);
 
-            channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: null, body: body);
-            
-            _logger.LogInformation($"MessageId {message.Id} was sent to {exchange}.");
+                var json = JsonConvert.SerializeObject(message);
+                var body = Encoding.UTF8.GetBytes(json);
+
+                channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: null, body: body);
+
+                _logger.LogInformation($"MessageId {message.Id} was sent to {exchange}.");
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Message publication was failed");
+            }
         }
 
         private void CreateConnection()
         {
-            try
+            var factory = new ConnectionFactory
             {
-                var factory = new ConnectionFactory
-                {
-                    HostName = _hostname,
-                    UserName = _username,
-                    Password = _password
-                };
-                _connection = factory.CreateConnection();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Could not create connection: {ex.Message}");
-            }
+                HostName = _hostname,
+                UserName = _username,
+                Password = _password
+            };
+            _connection = factory.CreateConnection();
         }
         
 

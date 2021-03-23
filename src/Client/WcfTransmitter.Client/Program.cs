@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
-
+using WcfTransmitter.Client.Extensions;
 
 namespace WcfTransmitter.Client
 {
@@ -19,7 +19,7 @@ namespace WcfTransmitter.Client
                 client = new BettingLineService.BettingLineServiceClient(instanceContext);
 
                 foreach (BettingLineService.Outcome outcome in await client.GetOutcomesAsync())
-                    Console.WriteLine($"GetOutcomes: Received Outcome: Event - [{outcome.EventName}], BetName - [{outcome.BetName}], Outcome - [{outcome.Title}], Factor - {outcome.FactorTime}. CreatedTime: {outcome.FactorTime}");
+                    outcome.PrintToConsole("Web API");
 
                 await client.SubscribeAsync();
 
